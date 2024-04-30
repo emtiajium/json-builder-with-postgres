@@ -47,15 +47,7 @@ const vocabulariesMap = new Map();
 
 queryResponse.forEach(currentQueryResponse => {
     const existingVocabulary = vocabulariesMap.get(currentQueryResponse.vocabularyId);
-    if (existingVocabulary) {
-        if (currentQueryResponse.definitionId) {
-            existingVocabulary.definitions.push({
-                id: currentQueryResponse.definitionId,
-                meaning: currentQueryResponse.meaning,
-                examples: currentQueryResponse.examples
-            });
-        }
-    } else {
+    if (!existingVocabulary) {
         vocabulariesMap.set(currentQueryResponse.vocabularyId, {
             id: currentQueryResponse.vocabularyId,
             word: currentQueryResponse.word,
@@ -64,6 +56,12 @@ queryResponse.forEach(currentQueryResponse => {
                 meaning: currentQueryResponse.meaning,
                 examples: currentQueryResponse.examples
             }] : []
+        });
+    } else {
+        existingVocabulary.definitions.push({
+            id: currentQueryResponse.definitionId,
+            meaning: currentQueryResponse.meaning,
+            examples: currentQueryResponse.examples
         });
     }
 });
