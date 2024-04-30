@@ -1,6 +1,6 @@
 # What is this repository for?
 
-TO BE ADDED
+[Exploring Advanced SQL Techniques: Aggregation Methods for Structured Data Retrieval](https://dev.to/emtiajium/exploring-advanced-sql-techniques-aggregation-methods-for-structured-data-retrieval-4600)
 
 # How to Run
 
