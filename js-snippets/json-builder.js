@@ -1,5 +1,12 @@
 const queryResponse = [
     {
+        'vocabularyId': 'd42fa860-dd41-4ef5-9e09-5e00adbda504',
+        'word': 'devil\'s advocate',
+        'definitionId': '0a97c584-b37f-4f7c-934b-f00e55bb55ec',
+        'meaning': 'a person who expresses a contentious opinion in order to provoke debate or test the strength of the opposing arguments',
+        'examples': ['The schoolmaster often played devil\'s advocate with his students so that they could have an interesting discussion and look at other points of views.']
+    },
+    {
         'vocabularyId': 'e0e77e53-dccb-4f4f-84c9-920200dc5e25',
         'word': 'Guerrilla marketing',
         'definitionId': 'ca5f9e17-42f6-43a1-aa3c-4fe345583077',
@@ -26,13 +33,6 @@ const queryResponse = [
         'definitionId': 'ad590930-9152-45a8-8d28-ac816cc9dd0b',
         'meaning': 'to make an effort to produce a particular quality in yourself, especially when you find it difficult',
         'examples': ['It took me six months to summon (up) the courage to ask him out for a drink.']
-    },
-    {
-        'vocabularyId': 'd42fa860-dd41-4ef5-9e09-5e00adbda504',
-        'word': 'devil\'s advocate',
-        'definitionId': '0a97c584-b37f-4f7c-934b-f00e55bb55ec',
-        'meaning': 'a person who expresses a contentious opinion in order to provoke debate or test the strength of the opposing arguments',
-        'examples': ['The schoolmaster often played devil\'s advocate with his students so that they could have an interesting discussion and look at other points of views.']
     }
 ];
 
