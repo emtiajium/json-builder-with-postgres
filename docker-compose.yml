@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+    json-builder-database:
+        image: postgres:14
+        container_name: json-builder-postgres
+        restart: always
+        ports:
+            - '5443:5432'
+        deploy:
+            resources:
+                limits:
+                    memory: 128M
+                reservations:
+                    memory: 128M
+        environment:
+            POSTGRES_PASSWORD: 123
+            POSTGRES_USER: postgres
+            POSTGRES_DB: json-builder
+        volumes:
+            - 'json-builder-postgres-data:/var/lib/postgresql/data'
+
+volumes:
+    json-builder-postgres-data:
+        name: json-builder-postgres-data
+        driver: local
