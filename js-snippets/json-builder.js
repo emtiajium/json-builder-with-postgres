@@ -1,4 +1,4 @@
-const queryResponse = [
+const queryResponses = [
     {
         'vocabularyId': 'd2daf563-ee43-439e-a8c0-6cfa325206dc',
         'word': 'Cakewalk',
@@ -43,28 +43,32 @@ const queryResponse = [
     }
 ];
 
-const vocabulariesMap = new Map();
+function process(queryResponses) {
+    const vocabulariesMap = new Map();
 
-queryResponse.forEach(currentQueryResponse => {
-    const existingVocabulary = vocabulariesMap.get(currentQueryResponse.vocabularyId);
-    if (!existingVocabulary) {
-        vocabulariesMap.set(currentQueryResponse.vocabularyId, {
-            id: currentQueryResponse.vocabularyId,
-            word: currentQueryResponse.word,
-            definitions: currentQueryResponse.definitionId ? [{
+    queryResponses.forEach(currentQueryResponse => {
+        const existingVocabulary = vocabulariesMap.get(currentQueryResponse.vocabularyId);
+        if (!existingVocabulary) {
+            vocabulariesMap.set(currentQueryResponse.vocabularyId, {
+                id: currentQueryResponse.vocabularyId,
+                word: currentQueryResponse.word,
+                definitions: currentQueryResponse.definitionId ? [{
+                    id: currentQueryResponse.definitionId,
+                    meaning: currentQueryResponse.meaning,
+                    examples: currentQueryResponse.examples
+                }] : []
+            });
+        } else {
+            existingVocabulary.definitions.push({
                 id: currentQueryResponse.definitionId,
                 meaning: currentQueryResponse.meaning,
                 examples: currentQueryResponse.examples
-            }] : []
-        });
-    } else {
-        existingVocabulary.definitions.push({
-            id: currentQueryResponse.definitionId,
-            meaning: currentQueryResponse.meaning,
-            examples: currentQueryResponse.examples
-        });
-    }
-});
+            });
+        }
+    });
 
-const vocabularies = [...vocabulariesMap.values()];
+    return [...vocabulariesMap.values()];
+}
+
+const vocabularies = process(queryResponses);
 console.log('vocabularies', JSON.stringify(vocabularies));
