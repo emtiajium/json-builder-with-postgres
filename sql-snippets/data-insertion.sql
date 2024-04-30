@@ -66,5 +66,12 @@ $$
                 '[
                   "The schoolmaster often played devil''s advocate with his students so that they could have an interesting discussion and look at other points of views."
                 ]', latestVocabularyId);
+
+        -- 5
+        insert into "Vocabulary" (id, word)
+        values (default, 'Cakewalk')
+        returning id
+            into latestVocabularyId;
+        -- no definition
     end;
 $$;

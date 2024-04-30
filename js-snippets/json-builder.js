@@ -1,36 +1,43 @@
 const queryResponse = [
     {
-        'vocabularyId': 'd42fa860-dd41-4ef5-9e09-5e00adbda504',
+        'vocabularyId': 'd2daf563-ee43-439e-a8c0-6cfa325206dc',
+        'word': 'Cakewalk',
+        'definitionId': null,
+        'meaning': null,
+        'examples': null
+    },
+    {
+        'vocabularyId': '7b33f8c7-1648-40e3-80df-3faec587f773',
         'word': 'devil\'s advocate',
-        'definitionId': '0a97c584-b37f-4f7c-934b-f00e55bb55ec',
+        'definitionId': '1a284263-c329-4876-bb66-14bb3b9e9a76',
         'meaning': 'a person who expresses a contentious opinion in order to provoke debate or test the strength of the opposing arguments',
         'examples': ['The schoolmaster often played devil\'s advocate with his students so that they could have an interesting discussion and look at other points of views.']
     },
     {
-        'vocabularyId': 'e0e77e53-dccb-4f4f-84c9-920200dc5e25',
+        'vocabularyId': 'ac7a758d-bebe-4f6c-8642-11b30260e9df',
         'word': 'Guerrilla marketing',
-        'definitionId': 'ca5f9e17-42f6-43a1-aa3c-4fe345583077',
+        'definitionId': '2bb85746-8915-4495-bff7-b63037a4ea09',
         'meaning': 'creative, low cost, unconventional strategy to promote the products or services',
         'examples': ['A startup should use guerrilla marketing to promote their services.']
     },
     {
-        'vocabularyId': 'fc655d2e-cfb6-49c7-b802-fdec0c38eee9',
+        'vocabularyId': 'ed6df6e5-2580-4c61-a05f-f390851974b3',
         'word': 'Run round like a headless chicken',
-        'definitionId': '31f8d729-9449-4215-bdd0-f41d3ee3abd4',
+        'definitionId': 'c89966db-ca3a-4ea2-b638-fde91834f00a',
         'meaning': 'to be very busy doing a lot of things, but in a way that is not very effective',
         'examples': ['Instead of running round like a headless chicken use your efforts in a more productive way.']
     },
     {
-        'vocabularyId': 'be487dde-3319-4dcb-86c1-66363c70477a',
+        'vocabularyId': 'bd5b5c91-5776-423c-8641-522110e98b29',
         'word': 'Summon',
-        'definitionId': 'ae76a6da-4e77-4c55-97ee-c23aa655c525',
+        'definitionId': 'ce25ff39-c37f-426e-ba50-2311492184a1',
         'meaning': 'order to be present',
         'examples': ['We were summoned to the headmaster\'s office.']
     },
     {
-        'vocabularyId': 'be487dde-3319-4dcb-86c1-66363c70477a',
+        'vocabularyId': 'bd5b5c91-5776-423c-8641-522110e98b29',
         'word': 'Summon',
-        'definitionId': 'ad590930-9152-45a8-8d28-ac816cc9dd0b',
+        'definitionId': '873cf807-3fe7-4322-8e61-465c87d66a40',
         'meaning': 'to make an effort to produce a particular quality in yourself, especially when you find it difficult',
         'examples': ['It took me six months to summon (up) the courage to ask him out for a drink.']
     }
@@ -44,11 +51,11 @@ queryResponse.forEach(currentQueryResponse => {
         vocabularies.push({
             id: currentQueryResponse.vocabularyId,
             word: currentQueryResponse.word,
-            definitions: [{
+            definitions: currentQueryResponse.definitionId ? [{
                 id: currentQueryResponse.definitionId,
                 meaning: currentQueryResponse.meaning,
                 examples: currentQueryResponse.examples,
-            }]
+            }] : []
         });
     } else {
         vocabularies[vocabularyIndex].definitions.push({
