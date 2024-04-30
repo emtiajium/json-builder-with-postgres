@@ -43,28 +43,30 @@ const queryResponse = [
     }
 ];
 
-const vocabularies = [];
+const vocabulariesMap = new Map();
 
 queryResponse.forEach(currentQueryResponse => {
-    const vocabularyIndex = vocabularies.findIndex((vocabulary) => vocabulary.id === currentQueryResponse.vocabularyId);
-    if (vocabularyIndex === -1) {
-        vocabularies.push({
+    const existingVocabulary = vocabulariesMap.get(currentQueryResponse.vocabularyId);
+    if (existingVocabulary) {
+        if (currentQueryResponse.definitionId) {
+            existingVocabulary.definitions.push({
+                id: currentQueryResponse.definitionId,
+                meaning: currentQueryResponse.meaning,
+                examples: currentQueryResponse.examples
+            });
+        }
+    } else {
+        vocabulariesMap.set(currentQueryResponse.vocabularyId, {
             id: currentQueryResponse.vocabularyId,
             word: currentQueryResponse.word,
             definitions: currentQueryResponse.definitionId ? [{
                 id: currentQueryResponse.definitionId,
                 meaning: currentQueryResponse.meaning,
-                examples: currentQueryResponse.examples,
+                examples: currentQueryResponse.examples
             }] : []
-        });
-    } else {
-        vocabularies[vocabularyIndex].definitions.push({
-            id: currentQueryResponse.definitionId,
-            meaning: currentQueryResponse.meaning,
-            examples: currentQueryResponse.examples,
         });
     }
 });
 
-
+const vocabularies = [...vocabulariesMap.values()];
 console.log('vocabularies', JSON.stringify(vocabularies));
