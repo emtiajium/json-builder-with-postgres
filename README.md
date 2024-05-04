@@ -32,7 +32,7 @@
 
 ➜ `sql-snippets/playground-2.sql`
 
-➜ `sql-snippets/playground-2.sql`
+➜ `sql-snippets/playground-3.sql`
 
 ## Remove backing services
 
